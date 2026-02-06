@@ -7,12 +7,18 @@
   },
   "hosting": {
     "public": "out",
+    "cleanUrls": true,
+    "trailingSlash": true,
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
     "rewrites": [
+      {
+        "source": "/posts/**",
+        "destination": "/posts/index.html"
+      },
       {
         "source": "**",
         "destination": "/index.html"
