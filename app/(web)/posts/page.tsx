@@ -7,6 +7,7 @@ interface Post {
   title: string;
   slug: { current: string };
   publishedAt: string;
+  _createdAt: string;
   body: any;
   author: string;
 }
@@ -19,10 +20,11 @@ async function getPosts() {
     title,
     slug,
     publishedAt,
+    _createdAt,
     body,
     author,
   }`;
-  
+
   return client.fetch(query);
 }
 
@@ -36,12 +38,14 @@ export default async function PostsPage() {
       </h1>
       <div className="grid gap-10">
         {posts.length > 0 ? (
-          posts.map((post) => (
+          posts.map((post) => {
+            const dateToDisplay = post.publishedAt || post._createdAt;
+            return (
             <article key={post._id} className="bg-white/50 dark:bg-zinc-900/50 p-8 rounded-lg border border-gray-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow">
               {/* En-tête de l'article */}
               <header className="mb-6">
                 <div className="text-sm text-gray-500 font-mono mb-2 uppercase tracking-wider">
-                  {new Date(post.publishedAt).toLocaleDateString("fr-FR", {
+                  {new Date(dateToDisplay).toLocaleDateString("fr-FR", {
                     day: "numeric",
                     month: "long",
                     year: "numeric",
@@ -56,7 +60,6 @@ export default async function PostsPage() {
                   {/* On affiche l'auteur seulement s'il est renseigné */}
                   {post.author && (
                     <>
-                      <span>•</span>
                       <span className="text-blue-600 dark:text-blue-400 font-bold">
                         {post.author}
                       </span>
@@ -70,7 +73,8 @@ export default async function PostsPage() {
                 <PortableText value={post.body} />
               </div>
             </article>
-          ))
+            );
+          })
         ) : (
           <p className="text-center text-gray-500 py-20 italic">
             Aucune transmission reçue pour le moment...

@@ -20,10 +20,6 @@
         "destination": "/studio/index.html"
       },
       {
-        "source": "/posts/**",
-        "destination": "/posts/index.html"
-      },
-      {
         "source": "**",
         "destination": "/index.html"
       }
