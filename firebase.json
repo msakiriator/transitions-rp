@@ -8,13 +8,17 @@
   "hosting": {
     "public": "out",
     "cleanUrls": true,
-    "trailingSlash": true,
+    "trailingSlash": false,
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
     "rewrites": [
+      {
+        "source": "/studio/**",
+        "destination": "/studio/index.html"
+      },
       {
         "source": "/posts/**",
         "destination": "/posts/index.html"

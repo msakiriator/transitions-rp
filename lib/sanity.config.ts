@@ -1,6 +1,6 @@
 export const config = {
-    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID, // Trouvé sur sanity.io/manage
+    projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
     dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
-    apiVersion: "2023-01-01",
+    apiVersion: "2024-01-01",
     useCdn: true,
   };

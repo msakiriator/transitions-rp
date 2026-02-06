@@ -4,8 +4,9 @@ export default {
     type: 'document',
     fields: [
       { name: 'title', title: 'Titre', type: 'string' },
+      { name: 'author', title: 'Auteur', type: 'string'},
       { name: 'slug', title: 'URL (Slug)', type: 'slug', options: { source: 'title' } },
-      { name: 'date', title: 'Date de publication', type: 'date' },
+      { name: 'publishedAt', title: 'Date de publication', type: 'datetime' },
       { 
         name: 'category', 
         title: 'Catégorie', 
