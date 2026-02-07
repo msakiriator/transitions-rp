@@ -47,8 +47,8 @@ const ptComponents: PortableTextComponents = {
     block: {
       h1: ({children}) => <h1 className="text-3xl font-black mt-10 mb-6 uppercase tracking-tight">{children}</h1>,
       h2: ({children}) => <h2 className="text-2xl font-bold mt-8 mb-4 uppercase tracking-tight border-l-4 border-black dark:border-white pl-4">{children}</h2>,
-      h3: ({children}) => <h3 className="text-xl font-bold mt-6 mb-3 text-zinc-800 dark:text-zinc-200">{children}</h3>,
-      h4: ({children}) => <h4 className="text-lg font-bold mt-4 mb-2 uppercase tracking-wide text-zinc-600 dark:text-zinc-400">{children}</h4>,
+      h3: ({children}) => <h3 className="text-xl font-bold mt-6 mb-3 text-zinc-800 dark:text-white">{children}</h3>,
+      h4: ({children}) => <h4 className="text-lg font-bold mt-4 mb-2 uppercase tracking-wide text-zinc-800 dark:text-white">{children}</h4>,
       normal: ({children}) => <p className="mb-4 leading-relaxed text-zinc-700 dark:text-zinc-300">{children}</p>,
       blockquote: ({children}) => <blockquote className="border-l-4 border-black dark:border-white pl-4 italic my-6 opacity-80 bg-zinc-50 dark:bg-zinc-900 py-2 pr-2 rounded-r">{children}</blockquote>,
     },

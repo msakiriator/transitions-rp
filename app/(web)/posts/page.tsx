@@ -46,7 +46,12 @@ export default async function PostsPage() {
               <article key={post._id} className="bg-white/50 dark:bg-zinc-900/50 p-8 rounded-lg border border-gray-200 dark:border-zinc-800 shadow-sm hover:shadow-md transition-shadow">
                 {/* En-tête de l'article */}
                 <header className="mb-6">
-                  <div className="text-sm text-gray-500 font-mono mb-2 uppercase tracking-wider">
+                  <div className="flex items-center gap-2 text-sm text-gray-500 font-mono mb-2 uppercase tracking-wider">
+                    {post.category && (
+                      <span className="px-2 py-0.5 border border-black/20 dark:border-white/20 rounded text-[10px] font-bold text-black dark:text-white uppercase tracking-widest">
+                        {post.category}
+                      </span>
+                    )}
                     <span>
                       {new Date(dateToDisplay).toLocaleDateString("fr-FR", {
                         day: "numeric",
@@ -54,14 +59,9 @@ export default async function PostsPage() {
                         year: "numeric",
                       })}
                     </span>
-                    {post.category && (
-                      <span className="px-2 py-0.5 border border-black/20 dark:border-white/20 rounded text-[10px] font-bold text-black dark:text-white uppercase tracking-widest">
-                        {post.category}
-                      </span>
-                      )}
-                </div>
+                  </div>
                   <h2 className="text-2xl font-bold mb-2">
-                    <Link href={`/posts/${post.slug.current}`} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                    <Link href={`/posts/${post.slug.current}`} className="hover:text-zinc-600 dark:hover:text-zinc-400 transition-colors">
                       {post.title}
                     </Link>
                   </h2>
@@ -76,11 +76,6 @@ export default async function PostsPage() {
                     )}
                   </div>
                 </header>
-
-                {/* Corps de l'article (Affichage du texte riche) */}
-                <div className="prose dark:prose-invert max-w-none">
-                  <PortableText value={post.body} />
-                </div>
               </article>
             );
           })

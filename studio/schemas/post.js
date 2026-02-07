@@ -5,7 +5,6 @@ export default {
     fields: [
       { name: 'title', title: 'Titre', type: 'string' },
       { name: 'slug', title: 'URL (Slug)', type: 'slug', options: { source: 'title' } },
-      { name: '_createdAt', title: 'Date de création (Auto)', type: 'datetime', readOnly: true, initialValue: (new Date()).toISOString() },
       { name: 'publishedAt', title: 'Date de publication', type: 'datetime' },
       { 
         name: 'category', 
